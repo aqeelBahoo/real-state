@@ -1,0 +1,62 @@
+<div class="main-content">
+
+  <!-- You only need this form and the form-register.css -->
+
+  <form *ngIf="!warning && !success && !loading" class="form-register"
+        (ngSubmit)="signUp(signUpForm,user)" #signUpForm="ngForm">
+
+    <div class="form-register-with-email">
+
+      <div class="form-white-background">
+
+        <div class="form-title-row">
+          <h1>Create an account</h1>
+        </div>
+
+        <div class="form-row">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" required>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" [(ngModel)]="user.email" #email="ngModel" required>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" [(ngModel)]="user.password" required #password="ngModel">
+          </label>
+        </div>
+
+        <div class="form-row">
+          <button type="submit" class="btn btn-primary" [disabled]="signUpForm.form.invalid">Register</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+  <!--for loading-->
+  <div class="text-center">
+    <div *ngIf="loading">
+      <span class="glyphicon glyphicon-repeat font"></span>
+
+      <div>Loading</div>
+    </div>
+    <div *ngIf="warning" class="alert alert-danger">
+      {{message}}
+    </div>
+    <div *ngIf="success" class="alert alert-info">
+      {{message}}
+    </div>
+  </div>
+
+</div>

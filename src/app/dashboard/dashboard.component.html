@@ -1,0 +1,98 @@
+<div class="container-fluid"
+     *ngIf="!loading && !warning">
+
+  <div class="row" *ngFor="let ad of Ads">
+
+    <!--add-->
+    <div class="text-center col-sm-6 col-sm-offset-2">
+      <div class="panel panel-warning">
+
+        <div class="panel-heading">
+          <h3>{{ad.title}}</h3>
+        </div>
+
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-5 item-img"
+                 *ngFor="let image of ad.images; let even = even; let odd = odd"
+                 [ngClass]="{'col-sm-offset-1': even}">
+              <img [src]="image" class="img-thumbnail">
+            </div>
+
+          </div>
+          <div class="row margin-top-30">
+            <div class="col-sm-12 padding-r-l-0 bg-warning">
+              <p>{{ad.description}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!--user-add-details-->
+    <div class="text-center col-sm-4">
+
+      <div class="row">
+        <div class="col-sm-10 bg-info ">
+          <h1>Rs. {{ad.rs}}</h1>
+        </div>
+
+        <div class="col-sm-10 bg-warning margin-top-10">
+          <h3>Phone</h3>
+
+          <h3>{{ad.phone}}</h3>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!--show all comments -->
+    <div class="col-sm-10 col-sm-offset-1 margin-b">
+      <p class="view-c-btn"
+         *ngIf="!ad.commentsShow && ad.comments.length != 0"
+         (click)="ad.commentsShow = true">View Comments</p>
+
+      <p class="view-c-btn"
+         *ngIf="ad.commentsShow"
+         (click)="ad.commentsShow = false">Hide Comments</p>
+
+      <div *ngIf="ad.commentsShow">
+        <div class="row"
+
+             *ngFor="let comment of ad.comments">
+          <div class="col-sm-1 commentImage">
+            <img [src]="commentUserImage ">
+          </div>
+          <div class="col-sm-10">
+            <div class="well">
+              <span class="pull-right">{{comment.updatedAt }}dfgfdg</span>
+
+              <b class="font-lg">{{comment.userId.name}}dfggsg</b>
+
+              <p class="margin-top-10">{{comment.comment}}dfgfgfdg</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!--for loading-->
+<div class="text-center" *ngIf="loading">
+  <span class="glyphicon glyphicon-repeat font"></span>
+
+  <div>Loading</div>
+</div>
+
+
+<div class="text-center">
+  <div
+    *ngIf="warning"
+    class="alert alert-danger">{{message}}</div>
+</div>

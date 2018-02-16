@@ -1,0 +1,62 @@
+.center {
+  margin: auto;
+  width: 50%;
+}
+
+.item-img {
+  height: 280px;
+  margin-top: 10px;
+}
+
+.item-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.font-60 {
+  font-size: 60px;
+}
+
+.padding-r-l-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.commentImage img {
+  width: 100%;
+  height: 60px;
+  border-radius: 52px;
+}
+
+.margin-b {
+  margin-bottom: 100px;
+}
+
+.comment-header {
+  margin-bottom: 24px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.comment-section {
+  border: 1px solid #cccccc;
+  border-top: transparent;
+  padding: 60px 0 0 10px ;
+}
+
+.font-lg{
+  font-size: 18px;
+}
+
+/*for loading*/
+.font{
+  font-size: 60px;
+}

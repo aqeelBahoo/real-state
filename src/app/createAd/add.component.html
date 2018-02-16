@@ -1,0 +1,60 @@
+<div *ngIf="!loading"
+     class="main-content">
+
+  <!-- You only need this form and the form-basic.css -->
+
+  <form class="form-basic" (ngSubmit)="adForm(ad, adDetails)" #ad="ngForm">
+
+    <div class="form-title-row">
+      <h1>Submit an Ad</h1>
+    </div>
+
+    <div class="form-row">
+      <label>
+        <span>Title</span>
+        <input type="text" name="name" [(ngModel)]="adDetails.title" #title="ngModel" required>
+      </label>
+    </div>
+
+
+    <div class="form-row">
+      <label>
+        <span>Description</span>
+        <textarea name="textarea" [(ngModel)]="adDetails.description" #description="ngModel" required></textarea>
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label>
+        <span>Rs</span>
+        <input type="text" name="rs" [(ngModel)]="adDetails.rs" #rs="ngModel" required>
+      </label>
+    </div>
+
+
+    <div class="form-row">
+      <label>
+        <span>Phone</span>
+        <input type="text" name="phone" [(ngModel)]="adDetails.phone" #phone="ngModel" required>
+      </label>
+    </div>
+
+
+    <image-upload [max]="4"
+                  (uploadFinished)="onUploadFinished($event)"
+                  (removed)="onRemoved($event)">
+    </image-upload>
+
+    <div class="form-row">
+    <button type="submit" [disabled]="ad.form.invalid">Submit Form</button>
+  </div>
+
+  </form>
+
+</div>
+
+<!--for loading-->
+<div class="text-center" *ngIf="loading">
+  <span class="glyphicon glyphicon-repeat font"></span>
+  <div>Loading</div>
+</div>
